@@ -24,4 +24,3 @@ There is cascade delete on family, it will remove all people that are stored in 
 
 Everything is stored in an in-memory database meaning when the application will be shutdown everything gets removed.
 There are some test data inserted that can be found in SoftHouseBackend/src/main/resources/data.sql
-# fe-kodtest
