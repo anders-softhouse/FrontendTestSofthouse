@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.softhouse.platform.service.PersonServiceTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.068 s <<< FAILURE! - in com.softhouse.platform.service.PersonServiceTest
+Find 3 people in find all if three are in database  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.AssertionError: Expected value to be true.
+	at com.softhouse.platform.service.PersonServiceTest.Find 3 people in find all if three are in database(PersonServiceTest.kt:66)
+
