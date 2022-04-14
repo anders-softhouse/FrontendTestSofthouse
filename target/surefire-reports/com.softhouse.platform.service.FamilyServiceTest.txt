@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.softhouse.platform.service.FamilyServiceTest
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.249 s - in com.softhouse.platform.service.FamilyServiceTest
