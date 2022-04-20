@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*
 import java.util.*
 import javax.persistence.EntityNotFoundException
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/")
 class PersonController(private val personService: PersonService) {
