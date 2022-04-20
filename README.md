@@ -8,7 +8,7 @@ Start Postman and import PersonFamily collection:
 
 Note: 
 * Default id in this collection is 1.
-* There are som test data that could be found using `api/persons` and `/api/families` calls 
+* There are som test data that could be found using `/api/persons` and `/api/families` calls 
 
 # Running docker
 
