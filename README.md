@@ -14,7 +14,7 @@ Note:
 
 * `docker build -t person-family:latest .`
 * `docker run -p 8080:8080 person-family`
- * Can also run on different port for example `docker run -p 8081:8080 person-family`
+    * Can also run on different port for example `docker run -p 8081:8080 person-family`
 
 ## H2 in-memory database
 
