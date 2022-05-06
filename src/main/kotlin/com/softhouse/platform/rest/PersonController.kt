@@ -18,17 +18,17 @@ class PersonController(private val personService: PersonService) {
     }
 
     @GetMapping("persons")
-    fun getPeople(): List<com.softhouse.platform.storage.Person> {
+    fun getPeople(  @RequestHeader( defaultValue = "1", required = false ) user : String ): List<com.softhouse.platform.storage.Person> {
         return personService.findAll()
     }
 
     @PostMapping("person")
-    fun createPerson(@RequestBody person: Person): com.softhouse.platform.storage.Person {
+    fun createPerson( @RequestHeader( defaultValue = "1", required = false ) user : String, @RequestBody person: Person): com.softhouse.platform.storage.Person {
         return personService.storePerson(person)
     }
 
     @DeleteMapping("person/{personId}")
-    fun removePerson(@PathVariable @NotNull personId: String) {
+    fun removePerson( @RequestHeader( defaultValue = "1", required = false ) user : String, @PathVariable @NotNull personId: String) {
         try {
             return personService.removePersonByPersonId(personId)
         } catch (exception: EntityNotFoundException) {
