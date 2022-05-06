@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: fe-service
+  name: fe-service
+spec:
+  ports:
+  - name: fe-ports
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: fe-test
+  type: LoadBalancer

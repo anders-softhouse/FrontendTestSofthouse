@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fe-test
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe-test
+  template:
+    metadata:
+      labels:
+        app: fe-test
+    spec:
+      containers:
+      - name: main
+        image: europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:latest
+        resources:
+          requests:
+            memory: "250Mi"
+            cpu: "250m"
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
