@@ -1,0 +1,40 @@
+# [START cloudbuild_maven]
+steps:
+  - name: maven:3.8.5-openjdk-18
+    entrypoint: mvn
+    args: ['test']
+
+  - name: maven:3.8.5-openjdk-18
+    entrypoint: mvn
+    args: ['package','-Dmaven.test.skip=true']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 
+      'build', 
+      '-t', europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:$SHORT_SHA', 
+      # '-t', 'us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:latest', 
+      '--build-arg=JAR_FILE=./target/person-family-0.0.1-SNAPSHOT.jar', 
+      '.' 
+    ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 
+      'push', 
+      'europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:$SHORT_SHA', 
+    ]
+
+  - name: gcr.io/cloud-builders/kubectl
+    env:  
+      - 'CLOUDSDK_CONTAINER_CLUSTER=code-test'
+      - 'CLOUDSDK_COMPUTE_ZONE=europe-north1-a'
+    
+    args: [
+      'set', 'image', 'deployment.apps/kust-test', 'softhouse=us-central1-docker.pkg.dev/a-great-sunday/a-great-sunday/softhouse:$SHORT_SHA'
+    ]
+
+images: ["europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family"]
+
+tags:
+  - $SHORT_SHA
+  - latest
+# [END cloudbuild_gradle]
