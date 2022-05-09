@@ -11,7 +11,7 @@ import javax.persistence.EntityNotFoundException
 @CrossOrigin
 @RestController
 @RequestMapping("api/")
-class SetupController(private val systemService : SystemService) {
+class SystemController(private val systemService : SystemService) {
 
     @GetMapping("setup")
     fun setup( @RequestHeader("User") user : String ) {
