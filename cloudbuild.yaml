@@ -29,7 +29,7 @@ steps:
       - 'CLOUDSDK_COMPUTE_ZONE=europe-north1-a'
     
     args: [
-      'set', 'image', 'deployment.apps/test', 'europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:$SHORT_SHA'
+      'set', 'image', 'deployment.apps/test', 'main=europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:$SHORT_SHA'
     ]
 
 images: ["europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family"]
