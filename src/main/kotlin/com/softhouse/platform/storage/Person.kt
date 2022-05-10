@@ -12,6 +12,9 @@ data class Person(
     @Column(name = "Id", insertable = false, updatable = false, nullable = false)
     val id: Long? = null,
 
+    @Column(name = "User_Id", updatable = false, nullable = false)
+    val userId: String,
+
     @Column(name = "CreatedAt", updatable = true, nullable = false)
     var createdAt: String,
 
@@ -33,5 +36,5 @@ data class Person(
     @JoinColumn(name = "Family_Id")
     private var family: Family? = null
 ) {
-    constructor() : this(null, "", "", "", "", "", null)
+    constructor() : this(null, "", "", "", "", "", "", null)
 }

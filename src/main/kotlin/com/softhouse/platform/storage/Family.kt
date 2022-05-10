@@ -10,13 +10,16 @@ data class Family(
     @Column(name = "id", insertable = false, updatable = false, nullable = false)
     val id: Long? = null,
 
+    @Column(name = "User_Id", updatable = false, nullable = false)
+    val userId: String,
+
     @Column(name = "Family_Name", updatable = false, nullable = false)
     val name: String,
 
     @OneToMany(mappedBy = "family", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
     private val familyMembers: MutableList<Person> = mutableListOf()
 ) {
-    constructor() : this(null, "", mutableListOf())
+    constructor() : this(null, "", "", mutableListOf())
 
     fun getFamilyMembers(): MutableList<Person> {
         return familyMembers

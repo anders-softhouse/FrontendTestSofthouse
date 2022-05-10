@@ -16,7 +16,6 @@ fun exceptionHandler(exception: Exception): Throwable {
     }
 }
 
-fun getUserId( user : String ) : Long {
-    var id = kotlin.math.abs( user.hashCode() ).toLong()
-    return id
+fun getUserId(user: String): Long {
+    return kotlin.math.abs(user.hashCode()).toLong()
 }

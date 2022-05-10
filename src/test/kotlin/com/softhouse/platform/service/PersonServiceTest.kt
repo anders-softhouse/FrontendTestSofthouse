@@ -32,11 +32,11 @@ class PersonServiceTest {
 
     @Test
     fun `Find existing person`() {
-        val person = Person(100L, "", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person = Person(100L, "userId","", "Stafan", "Stale", "123", "Tegnergatan 37")
         personRepository.save(person)
 
         val createdPerson = personRepository.findAll()[0]
-        val foundPerson = personService.findByPersonId(createdPerson.id.toString())
+        val foundPerson = personService.findByPersonId(createdPerson.id.toString(), "userId")
         assertNotNull(foundPerson)
 
         assertEquals(person.firstName, foundPerson.get().firstName)
@@ -44,28 +44,38 @@ class PersonServiceTest {
 
     @Test
     fun `Can't find non-existing person`() {
-        val person = Person(2L, "", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person = Person(2L, "userId","", "Stafan", "Stale", "123", "Tegnergatan 37")
 
-        val foundPerson = personService.findByPersonId(person.id.toString())
+        val foundPerson = personService.findByPersonId(person.id.toString(), "userId")
         assertFalse(foundPerson.isPresent)
     }
 
     @Test
     fun `Find 3 people in find all if three are in database`() {
-        val person1 = Person(1L, "", "Stafan", "Stale", "123", "Tegnergatan 37")
-        val person2 = Person(2L, "", "Stafan", "Stale", "123", "Tegnergatan 37")
-        val person3 = Person(3L, "", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person1 = Person(1L, "userId","", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person2 = Person(2L, "userId","", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person3 = Person(3L, "userId","", "Stafan", "Stale", "123", "Tegnergatan 37")
 
         personRepository.save(person1)
         personRepository.save(person2)
         personRepository.save(person3)
 
-        val people = personService.findAll()
+        val people = personService.findAll("userId")
         assertEquals(people.size, 3)
+    }
 
-        assertTrue(people.any { it.id == 1L })
-        assertTrue(people.any { it.id == 2L })
-        assertTrue(people.any { it.id == 3L })
+    @Test
+    fun `Filter out persos if incorrect userId`() {
+        val person1 = Person(1L, "userId1","", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person2 = Person(2L, "userId2","", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person3 = Person(3L, "userId3","", "Stafan", "Stale", "123", "Tegnergatan 37")
+
+        personRepository.save(person1)
+        personRepository.save(person2)
+        personRepository.save(person3)
+
+        val people = personService.findAll("userId1")
+        assertEquals(people.size, 1)
     }
 
     @Test
@@ -83,9 +93,9 @@ class PersonServiceTest {
         person.phoneNumber = "phoneNumber"
         person.address = "address"
 
-        personService.storePerson(person)
+        personService.storePerson(person, "userId")
 
-        val foundPerson = personService.findAll()
+        val foundPerson = personService.findAll("userId")
         assertNotNull(foundPerson)
     }
 
@@ -98,22 +108,22 @@ class PersonServiceTest {
         person.address = "address"
         person.family = "1"
 
-        personService.storePerson(person)
+        personService.storePerson(person, "userId")
 
-        val foundPerson = personService.findAll()
+        val foundPerson = personService.findAll("userId")
         assertNotNull(foundPerson)
     }
 
     @Test
     fun `Delete one person`() {
-        val person = Person(1L, "", "Stafan", "Stale", "123", "Tegnergatan 37")
+        val person = Person(1L, "userId", "", "Stafan", "Stale", "123", "Tegnergatan 37")
         personRepository.save(person)
 
         val createdPerson = personRepository.findAll()[0]
-        val foundPerson = personService.findByPersonId(createdPerson.id.toString())
+        val foundPerson = personService.findByPersonId(createdPerson.id.toString(), "userId")
         assertTrue(foundPerson.isPresent)
 
-        personService.removePersonByPersonId(createdPerson.id.toString())
+        personService.removePersonByPersonId(createdPerson.id.toString(), "userId")
 
         val deletedPerson = personRepository.findById(createdPerson.id!!.toLong())
         assertFalse(deletedPerson.isPresent)
@@ -121,7 +131,7 @@ class PersonServiceTest {
 
     @Test
     fun `Fail to delete non existing person`() {
-        assertThrows<EntityNotFoundException> { personService.removePersonByPersonId("1") }
+        assertThrows<EntityNotFoundException> { personService.removePersonByPersonId("1", "userId") }
     }
 }
 

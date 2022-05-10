@@ -13,24 +13,35 @@ import javax.persistence.EntityNotFoundException
 class PersonController(private val personService: PersonService) {
 
     @GetMapping("person/{personId}")
-    fun getPersonById(@PathVariable @NotNull personId: String): Optional<com.softhouse.platform.storage.Person> {
-        return personService.findByPersonId(personId)
+    fun getPersonById(
+        @RequestHeader(defaultValue = "1", required = false) userId: String,
+        @PathVariable @NotNull personId: String
+    ): Optional<com.softhouse.platform.storage.Person> {
+        return personService.findByPersonId(personId, userId)
     }
 
     @GetMapping("persons")
-    fun getPeople(  @RequestHeader( defaultValue = "1", required = false ) user : String ): List<com.softhouse.platform.storage.Person> {
-        return personService.findAll()
+    fun getPeople(
+        @RequestHeader( defaultValue = "1", required = false) userId : String
+    ): List<com.softhouse.platform.storage.Person> {
+        return personService.findAll(userId)
     }
 
     @PostMapping("person")
-    fun createPerson( @RequestHeader( defaultValue = "1", required = false ) user : String, @RequestBody person: Person): com.softhouse.platform.storage.Person {
-        return personService.storePerson(person)
+    fun createPerson(
+        @RequestHeader(defaultValue = "1", required = false) userId : String,
+        @RequestBody person: Person
+    ): com.softhouse.platform.storage.Person {
+        return personService.storePerson(person, userId)
     }
 
     @DeleteMapping("person/{personId}")
-    fun removePerson( @RequestHeader( defaultValue = "1", required = false ) user : String, @PathVariable @NotNull personId: String) {
+    fun removePerson(
+        @RequestHeader(defaultValue = "1", required = false) userId : String,
+        @PathVariable @NotNull personId: String
+    ) {
         try {
-            return personService.removePersonByPersonId(personId)
+            return personService.removePersonByPersonId(personId, userId)
         } catch (exception: EntityNotFoundException) {
             throw exceptionHandler(exception)
         }
