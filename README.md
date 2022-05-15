@@ -1,5 +1,6 @@
-# Softhouse
-Backend for frontend test: `person-family`   
+# Softhouse / test / frontend : `person-family`
+Docker image ( local ) and online application ( remote ) gives access to a backend for the person-family frontend test.
+
 
 ## Postman
 Start Postman and import your request collection of choice:
