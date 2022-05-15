@@ -4,13 +4,13 @@
 Start Postman and import your request collection of choice:
 
 `File -> Import -> Postman_remote_collection.json` 
-	( Tip-1: click on collection -> variables -> userId to set this request header for the entire collection. )
-	( Tip-2: Use your email address for this value. ).
+	* Tip-1: click on collection -> variables -> userId to set this request header for the entire collection.
+	* Tip-2: Use your email address for this value.
 
 or
  
 `File -> Import -> Postman_local_collection.json` 
-	( Use if running a Docker container on your own computer ).
+	* Use if running a Docker container on your own computer.
 
 # Running docker
 
