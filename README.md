@@ -29,16 +29,16 @@ Every new row will get an incremented id starting at 1.
 
 There is cascade delete on family, it will remove all people that are stored in family.
 
-Everything is stored in an in-memory database meaning when the application will be shutdown everything gets removed.
-The inserted test data can be found in SoftHouseBackend/src/main/resources/data.sql   
+Everything is stored in an in-memory database meaning that when the application is shutdown, everything gets removed.
+The test data can be found in src/main/resources/data.sql   
 
-## Optional: Changing the backend and creating new docker
+## Optional: Updating the backend, building and running a new Docker container.
 
-If you for whatever reason want to change anything in the backend to test or something similar follow the following instructions:
+If you would like to update the docker image for your ( local )  backend:
 
-* Change directory to root of project
+* Change directory to the root of the project
 * `mvn package`
 * `docker build -t person-family:latest .`
-* `docker run -p 8080:8080 person-family`
+* `docker run -dp 8080:8080 person-family`
 
 Note: You will only be judged by the original version of this backend
