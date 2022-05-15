@@ -10,17 +10,16 @@ Start Postman and import your request collection of choice:
 or  
   
 * `File -> Import -> Postman_local_collection.json`  
-   * Use if running a Docker container on your own computer.  
+   * Use if running a Docker container on your own computer.   
 
 
-# Running back-end as a local docker container
+# Running the backend as a local docker container
 
 ## Starting your container
 * `docker run -dp 8080:8080 images4softhouse/person-family`
 
 ## Stopping your container
-* `docker stop` unique-id-of-your-container-here 
-
+* `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER-HERE   
 
 ## H2 in-memory database
 
@@ -29,8 +28,7 @@ Every new row will get an incremented id starting at 1.
 There is cascade delete on family, it will remove all people that are stored in family.
 
 Everything is stored in an in-memory database meaning when the application will be shutdown everything gets removed.
-The inserted test data can be found in SoftHouseBackend/src/main/resources/data.sql
-
+The inserted test data can be found in SoftHouseBackend/src/main/resources/data.sql   
 
 ## Optional: Changing the backend and creating new docker
 
