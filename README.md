@@ -1,7 +1,7 @@
 # Softhouse
 Backend for frontend test: `person-family`   
 
-# Postman
+## Postman
 Start Postman and import your request collection of choice:
 
 * `File -> Import -> Postman_remote_collection.json`  
@@ -14,12 +14,12 @@ or
    * Use if running a Docker container on your own computer.   
 
 
-# Running the backend as a local docker container
+## Running the backend as a local docker container
 
-## Starting your container
+### Starting your container
 * `docker run -dp 8080:8080 images4softhouse/person-family`
 
-## Stopping your container
+### Stopping your container
 * `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER-HERE   
 
 ## H2 in-memory database
