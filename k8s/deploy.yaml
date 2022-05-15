@@ -17,11 +17,11 @@ spec:
       containers:
       - name: main
         image: europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:latest
-	imagePullPolicy: Always
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "1024Mi"
-            cpu: "1024m"
+            cpu: "333m"
           limits:
             memory: "1024Mi"
-            cpu: "1024m"
+            cpu: "333m"
