@@ -42,4 +42,4 @@ If you would like to update the docker image for your ( local )  backend:
 * `docker build -t person-family:latest .`
 * `docker run -dp 8080:8080 person-family`
 
-Note: You will only be judged by the original version of this backend
+Note: You will only be judged by the original version of the backend
