@@ -1,10 +1,11 @@
-# Person-Family backend for the Softhouse FE test.
+# Person-Family backend for the Softhouse Front-End test.
 
 # Postman
+Start Postman and import your request collection of choice:
 
-Start Postman and import PersonFamily collection:
-
-`File -> Import -> Kodtest.softhouse.postman_collection.json`
+`File -> Import -> Postman_remote_collection.json` ( Tip: set your "userId"-header on the entire request collection )
+or
+`File -> Import -> Postman_local_collection.json` ( Use if running a Docker container on your own computer )
 
 Note: 
 * Default id in this collection is 1.
