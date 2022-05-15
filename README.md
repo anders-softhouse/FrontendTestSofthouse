@@ -3,9 +3,11 @@
 # Postman
 Start Postman and import your request collection of choice:
 
-`File -> Import -> Postman_remote_collection.json` ( Tip: set your "userId"-header on the entire request collection ) 
- or 
-`File -> Import -> Postman_local_collection.json` ( Use if running a Docker container on your own computer )
+`File -> Import -> Postman_remote_collection.json` ( Tip: set your "userId"-header on the entire request collection ).
+
+or
+ 
+`File -> Import -> Postman_local_collection.json` ( Use if running a Docker container on your own computer ).
 
 Note: 
 * Default id in this collection is 1.
