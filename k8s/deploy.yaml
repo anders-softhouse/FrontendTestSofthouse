@@ -19,8 +19,8 @@ spec:
         image: europe-north1-docker.pkg.dev/code-test-stockholm/code-test/person-family:1.3
         resources:
           requests:
-            memory: "250Mi"
-            cpu: "250m"
+            memory: "1024Mi"
+            cpu: "1024m"
           limits:
-            memory: "250Mi"
-            cpu: "250m"
+            memory: "1024Mi"
+            cpu: "1024m"
