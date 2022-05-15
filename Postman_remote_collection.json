@@ -9,7 +9,13 @@
 			"name": "Person",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/person/1",
 					"host": [
@@ -32,7 +38,13 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -60,7 +72,13 @@
 			"name": "Family",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/family/1",
 					"host": [
@@ -80,7 +98,13 @@
 			"name": "Families",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/families",
 					"host": [
@@ -99,7 +123,13 @@
 			"name": "Get Family with members",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/family/1/members",
 					"host": [
@@ -120,7 +150,13 @@
 			"name": "Create Person",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"firstName\": \"Andreas\",\n    \"lastName\": \"Andersson\",\n    \"phoneNumber\": \"0734561238\",\n    \"address\": \"Tegenergatan 17\",\n    \"family\": \"<family-id>\"\n}",
@@ -148,7 +184,13 @@
 			"name": "Create family",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"familyName\": \"Andersson\",\n    \"familyId\": \"1\",\n    \"personId\": \"1\"\n}",
@@ -176,7 +218,13 @@
 			"name": "Add person into family",
 			"request": {
 				"method": "PATCH",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"familyName\": \"Andersson\",\n    \"familyId\": \"1\",\n    \"personId\": \"1\"\n}",
@@ -205,7 +253,13 @@
 			"name": "Delete family member",
 			"request": {
 				"method": "PATCH",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/family/1/removePerson/1",
 					"host": [
@@ -227,7 +281,13 @@
 			"name": "Delete family",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/family/1",
 					"host": [
@@ -247,7 +307,13 @@
 			"name": "Delete Person",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "userId",
+						"value": "{{userId}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{_host_}}:8080/api/person/1",
 					"host": [
@@ -288,6 +354,11 @@
 		{
 			"key": "_host_",
 			"value": "so.fthou.se",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "put.email@here.se",
 			"type": "string"
 		}
 	]
