@@ -14,21 +14,22 @@ or
 * `File -> Import -> Postman_local_collection.json`  
    * Use if running a [Docker](https://www.docker.com/get-started/) container on your own computer.   
 
-## Running the backend ( remote )
+## Calling the backend ( remote )
 Use Postman and your own client. 
 * Host: so.fthou.se
 * Port: 8080
 
-## Running the backend as a ( local ) docker container
-Use Postman and your own client. 
-* Host: localhost
-* Port: 8080
+## Calling the backend ( local ) 
 
 ### Starting your container
 * `docker run -dp 8080:8080 images4softhouse/person-family`
 
 ### Stopping your container
 * `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER-HERE   
+
+Use Postman and your own client. 
+* Host: localhost
+* Port: 8080
 
 ## H2 in-memory database
 
