@@ -4,15 +4,20 @@ metadata:
   labels:
     app: fe-test
   name: test
+
 spec:
   replicas: 2
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: fe-test
+
+
   template:
     metadata:
       labels:
         app: fe-test
+
     spec:
       containers:
       - name: main
