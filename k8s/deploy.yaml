@@ -5,7 +5,7 @@ metadata:
     app: fe-test
   name: test
 
-spec:
+spec: 
   replicas: 2
   revisionHistoryLimit: 1
   selector:
