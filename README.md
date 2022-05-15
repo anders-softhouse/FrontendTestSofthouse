@@ -23,14 +23,14 @@ Use Postman and your own client.
 
 
 ### Start your container
-* `docker run -dp 8080:8080 images4softhouse/person-family` -> UNIQUE-ID-OF-YOUR-CONTAINER-HERE
+* `docker run -dp 8080:8080 images4softhouse/person-family` -> UNIQUE-ID-OF-YOUR-CONTAINER
 
 Use Postman and your own client. 
 * Host: localhost
 * Port: 8080
 
 ### Stop your container
-* `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER-HERE 
+* `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER
 
 
 ## H2 in-memory database
