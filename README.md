@@ -1,4 +1,5 @@
-# Backend for the Softhouse front-end test: `person-family`
+# Softhouse
+## Backend for frontend test: `person-family`
 
 # Postman
 Start Postman and import your request collection of choice:
