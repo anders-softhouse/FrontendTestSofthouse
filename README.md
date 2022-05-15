@@ -12,10 +12,13 @@ or
 * `File -> Import -> Postman_local_collection.json`  
    * Use if running a Docker container on your own computer.  
 
-# Running docker
+# Running back-end as a local docker container
 
-* `docker build -t person-family:latest .`
-* `docker run -p 8080:8080 person-family`
+* `docker run -dp 8080:8080 images4softhouse/person-family`
+
+# Stopping your local docker container
+
+* `docker stop` unique-id-of-your-container-here 
 
 ## H2 in-memory database
 
