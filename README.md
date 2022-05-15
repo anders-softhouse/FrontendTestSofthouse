@@ -17,15 +17,15 @@ or
 ## Calling the backend ( remote )
 Use Postman and your own client. 
 * Host: so.fthou.se
-* Port: 8080
-
-## Calling the backend ( local ) 
-
-### Starting your container
-* `docker run -dp 8080:8080 images4softhouse/person-family`
+* Port: 8080  
 
 ### Stopping your container
-* `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER-HERE   
+* `docker stop` UNIQUE-ID-OF-YOUR-CONTAINER-HERE 
+
+## Calling the backend ( local )  
+
+### Starting your container
+* `docker run -dp 8080:8080 images4softhouse/person-family`  
 
 Use Postman and your own client. 
 * Host: localhost
