@@ -32,7 +32,8 @@ There is cascade delete on family, it will remove all people that are stored in 
 Everything is stored in an in-memory database meaning that when the application is shutdown, everything gets removed.
 The test data can be found in src/main/resources/data.sql   
 
-## Optional: Updating the backend, building and running a new Docker container.
+## Updating the backend, building and running a new Docker container.
+`Optional`
 
 If you would like to update the docker image for your ( local )  backend:
 
