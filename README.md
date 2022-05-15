@@ -3,7 +3,7 @@ Docker image ( local ) and online application ( remote ) gives access to a backe
 
 
 ## Postman
-Start Postman and import your request collection of choice:
+Start [Postman](https://www.postman.com/downloads/) and import your request collection of choice:
 
 * `File -> Import -> Postman_remote_collection.json`  
    * Tip-1: click on collection -> variables -> userId to set this request header for the entire collection.  
@@ -12,10 +12,17 @@ Start Postman and import your request collection of choice:
 or  
   
 * `File -> Import -> Postman_local_collection.json`  
-   * Use if running a Docker container on your own computer.   
+   * Use if running a [Docker](https://www.docker.com/get-started/) container on your own computer.   
 
+## Running the backend ( remote )
+Use Postman and your own client. 
+* Host: so.fthou.se
+* Port: 8080
 
-## Running the backend as a local docker container
+## Running the backend as a ( local ) docker container
+Use Postman and your own client. 
+* Host: localhost
+* Port: 8080
 
 ### Starting your container
 * `docker run -dp 8080:8080 images4softhouse/person-family`
