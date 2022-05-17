@@ -12,3 +12,5 @@ spring:
     defer-datasource-initialization: true
   sql:
     init.mode: ALWAYS # NEVER
+
+server.error.include-message: always

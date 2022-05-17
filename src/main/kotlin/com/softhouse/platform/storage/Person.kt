@@ -37,4 +37,14 @@ data class Person(
     private var family: Family? = null
 ) {
     constructor() : this(null, "", "", "", "", "", "", null)
+
+    fun setFamily(family: Family) {
+        this.family = family
+    }
+
+    fun removeFromFamily(family: Family) {
+        if (this.family?.id == family.id) {
+            this.family = null
+        }
+    }
 }

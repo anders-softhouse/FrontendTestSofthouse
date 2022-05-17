@@ -1,5 +1,7 @@
 package com.softhouse.platform.storage
 
+import lombok.Getter
+import lombok.Setter
 import javax.persistence.*
 
 @Entity
@@ -16,8 +18,10 @@ data class Family(
     @Column(name = "Family_Name", updatable = false, nullable = false)
     val name: String,
 
-    @OneToMany(mappedBy = "family", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
-    private val familyMembers: MutableList<Person> = mutableListOf()
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "family", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
+    private var familyMembers: MutableList<Person> = mutableListOf()
 ) {
     constructor() : this(null, "", "", mutableListOf())
 
@@ -26,11 +30,17 @@ data class Family(
     }
 
     fun addFamilyMember(newFamilyMember: Person) {
-        familyMembers += newFamilyMember
+        newFamilyMember.setFamily(this)
+
+        familyMembers.add(newFamilyMember)
     }
 
     fun removeFamilyMember(familyMemberToDelete: Person) {
-        familyMembers -= familyMemberToDelete
+        familyMemberToDelete.removeFromFamily(this)
+
+        familyMembers
+            .find { person -> person.id == familyMemberToDelete.id }
+            .let { familyMembers.remove(it) }
     }
 }
 

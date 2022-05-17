@@ -65,7 +65,7 @@ class PersonServiceTest {
     }
 
     @Test
-    fun `Filter out persos if incorrect userId`() {
+    fun `Filter out people if incorrect userId`() {
         val person1 = Person(1L, "userId1","", "Stafan", "Stale", "123", "Tegnergatan 37")
         val person2 = Person(2L, "userId2","", "Stafan", "Stale", "123", "Tegnergatan 37")
         val person3 = Person(3L, "userId3","", "Stafan", "Stale", "123", "Tegnergatan 37")

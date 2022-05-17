@@ -53,12 +53,13 @@ class FamilyService(
         val family = findFamilyByIdOrException(familyId, userId)
         val person = findPersonByIdOrException(personId, userId)
 
-        if (!family.getFamilyMembers().contains(person)) {
+        if (family.getFamilyMembers().find { it.id == person.id} == null) {
             throw IllegalArgumentException("Family member with personId '${person.id}' doesn't exist in the family [$family]")
         }
 
         family.removeFamilyMember(person)
 
+        personRepository.save(person)
         return familyRepository.save(family)
     }
 
